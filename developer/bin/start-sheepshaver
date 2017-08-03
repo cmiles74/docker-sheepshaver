@@ -1,0 +1,12 @@
+#!/bin/bash
+padsp SheepShaver \
+      --rom $SS_ROM \
+      --disk $SS_DISK \
+      --extfs /shared \
+      --ramsize $SS_RAM \
+      --screen win/$SS_WIDTH/$SS_HEIGHT \
+      --ether $SS_NET \
+      --jit $SS_JIT \
+      --nogui $SS_NO_GUI \
+      --ignoresegv true \
+      --ignoreillegal true

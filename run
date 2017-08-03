@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#
+# You may customize these variables for your environment
+#
+
+# path to directory with your hard disk file, ROM, etc.
+SS_DATA_PATH=$HOME/.local/Sheepshaver
+
+# path within your SS_DATA_PATH to your ROM file
+SS_ROM=/data/sheepshaver.rom
+
+# path within your SS_DATA_PATH to your hard disk file
+SS_DISK=/data/disk
+
+# amount of RAM to allocat (64MB)
+SS_RAM=268435456
+
+# width of the emulated display
+SS_WIDTH=1920
+
+# height of the emulated display
+SS_HEIGHT=1080
+
+# network device
+SS_NET=slirp
+
+# flag indicating if the GUI should be displayed
+SS_NO_GUI=true
+
+# local directory to mount for sharing files
+SS_EXTFS=$HOME/Downloads
+
+# flag indicating if the Just-In-Time compiler should be used
+SS_JIT=true
+
+# get our ids
+USER_UID=$(id -u)
+USER_GID=$(id -g)
+
+# allow all docker hosts to our X server
+xhost +local:
+
+# start docker and emacs
+docker run \
+      --env USER_UID=$USER_UID \
+      --env USER_GID=$USER_GID \
+      --env DISPLAY=unix${DISPLAY} \
+      --env SS_DATA_PATH=$SS_DATA_PATH \
+      --env SS_ROM=$SS_ROM \
+      --env SS_DISK=$SS_DISK \
+      --env SS_RAM=$SS_RAM \
+      --env SS_WIDTH=$SS_WIDTH \
+      --env SS_HEIGHT=$SS_HEIGHT \
+      --env SS_NET=$SS_NET \
+      --env SS_NO_GUI=$SS_NO_GUI \
+      --env SS_JIT=$SS_JIT \
+      --device /dev/snd \
+      --device /dev/sheep_net \
+      --privileged \
+      --rm \
+      -it \
+      -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+      -v $SS_DATA_PATH:/data \
+      -v $SS_EXTFS:/shared \
+      -v /run/user/$USER_UID/pulse:/run/pulse:ro \
+      --name docker-sheepshaver \
+      cmiles74/docker-sheepshaver
