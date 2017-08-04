@@ -8,9 +8,9 @@ You can pull this image from Docker Hub.
 Last week I was cleaning out my office and I found an old clamshell iBook from
 way back in 1999. It powers up but the CD-ROM drive is dead and although it has
 a USB port, it doesn't want to boot from it. I put it on the shelf in case I
-come across a replacement CD=ROM drive, but after that I kept thinking about
+come across a replacement CD-ROM drive, but after that I kept thinking about
 those days on that laptop with Mac OS 9, working as a web developer doing mostly
-HTML and a little bit of JavaScript. And then I found [SheepShaver][0]!
+HTML, PHP and a little bit of JavaScript. And then I found [SheepShaver][0]!
 
 This image provides a Debian Wheezy image with a working instance of the
 SheepShaver PowerPC emulator, all ready to run your favorite Classic MacOS
@@ -21,24 +21,23 @@ Running the Image
 --------------------
 
 This image comes with a handy "run" script that will probably do everything that
-you need. It allows X11 access to the docker user, provides access to your S
-server and audio interfaces and runs Docker in ["privileged mode"][1]. We need
-privilege mode so that it can get access to your network adapter (more on that
-later).
+you need. It allows X11 access to the docker user, provides access to your audio
+interfaces and runs Docker in ["privileged mode"][1]. We need privilege mode so
+that it can get access to your network adapter (more on that later).
 
 Take a look at this script, you'll need to customize the variables at the top so
 that it does what you want. I'm not going to go through a complete setup here
 (you can find more information on [Emaculation.com][2]), but here are some
 important details...
 
-!!! Mac OS ROM File
+### Mac OS ROM File
 
 SheepShaver needs a copy of a Macintosh ROM file. In my experience, it won't
 work with any ROM file that was created after then end of 1999 (anything from
 2000 onwards won't work.) You can find some of
 these [ROM files on the internet][3].
 
-!!! Macintosh Hard Drive File
+### Macintosh Hard Drive File
 
 Sheepshaver can create a hard drive file for you through it's GUI interface. The
 default configuration in the "run" file disables this interface (that's easiest
@@ -46,7 +45,7 @@ with day-to-day use), but you will want to enable it while you fiddle with the
 various settings. Change the flag in the "run" file and you can create the disk
 and get things working.
 
-!!! Installation Media
+### Installation Media
 
 Lastly, you'll need an ISO (or ".toast") file with the installation media. You
 can mount that in SheepShaver and your emulated Macintosh will boot from it. You
@@ -65,7 +64,7 @@ you'll need to check out the source code for SheepShaver.
 
     git clone https://github.com/cebix/macemu
     
-Instructions for compiling and installing it []are available as well][5]. I
+Instructions for compiling and installing it [are available as well][5]. I
 followed those instructions step-by-step and it worked well.
 
 SheepShaver has several options for connecting to your network devices. I myself
