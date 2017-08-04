@@ -26,7 +26,7 @@ SS_HEIGHT=1080
 SS_NET=slirp
 
 # flag indicating if the GUI should be displayed
-SS_NO_GUI=true
+SS_NO_GUI=false
 
 # local directory to mount for sharing files
 SS_EXTFS=$HOME/Downloads

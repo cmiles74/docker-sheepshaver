@@ -30,6 +30,16 @@ that it does what you want. I'm not going to go through a complete setup here
 (you can find more information on [Emaculation.com][2]), but here are some
 important details...
 
+### Mapping in a Directory with Your Stuff
+
+The `SS_DATA_PATH` variable should point to a directory on your local machine
+somewhere that will contain all your SheepShaver related data, like the items
+details below. The `SS_EXTFS` variable should point to a directory on your local
+machine where you will swap files with the SheepShaver environment. I've found
+SheepShaver to be a little finicky about what files and directories it's willing
+to show (I think it has issues with characters in the files, perhaps), so I have
+been pointing it to a single directory.
+
 ### Mac OS ROM File
 
 SheepShaver needs a copy of a Macintosh ROM file. In my experience, it won't
@@ -39,11 +49,9 @@ these [ROM files on the internet][3].
 
 ### Macintosh Hard Drive File
 
-Sheepshaver can create a hard drive file for you through it's GUI interface. The
-default configuration in the "run" file disables this interface (that's easiest
-with day-to-day use), but you will want to enable it while you fiddle with the
-various settings. Change the flag in the "run" file and you can create the disk
-and get things working.
+Sheepshaver can create a hard drive file for you through it's GUI interface.
+After you get your drive created and everything running the way you like it, it
+may make sense to set the flag to hide the GUI at launch time.
 
 ### Installation Media
 
@@ -69,6 +77,17 @@ followed those instructions step-by-step and it worked well.
 
 SheepShaver has several options for connecting to your network devices. I myself
 have only had success with the "slirp" interface, but your mileage may vary.
+
+Troubleshooting
+-----------------
+
+I don't have a lot of tips, if SheepShaver doesn't work you're pretty much at
+the mercy of the internet and old message boards. But I did notice one thing:
+try turning the GUI off. If I leave the GUI on, I'll get a solid black screen.
+If I turn the GUI off and rely on the command line parameters, SheepShaver will
+boot just fine.
+
+Good luck! `:-D`
 
 Why Don't I Just Compile the Whole Project?
 -------------------------------------------------
