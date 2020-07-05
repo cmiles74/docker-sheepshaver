@@ -1,7 +1,13 @@
 #!/bin/bash
+if [ ! -z $SS_CDROM ]
+then
+  CD="--cdrom $SS_CDROM"
+fi
+
 padsp SheepShaver \
       --rom $SS_ROM \
       --disk $SS_DISK \
+      $CD \
       --extfs /shared \
       --ramsize $SS_RAM \
       --screen win/$SS_WIDTH/$SS_HEIGHT \
