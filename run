@@ -13,7 +13,7 @@ SS_ROM=/data/sheepshaver.rom
 # path within your SS_DATA_PATH to your hard disk file
 SS_DISK=/data/disk
 
-# amount of RAM to allocat (64MB)
+# amount of RAM to allocat (256MB)
 SS_RAM=268435456
 
 # width of the emulated display
